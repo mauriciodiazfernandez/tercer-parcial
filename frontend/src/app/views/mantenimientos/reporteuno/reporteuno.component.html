@@ -1,0 +1,64 @@
+<c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card class="mb-4" color="danger">
+      <c-card-body >
+        <!--<h1>Primer Reporte</h1>-->
+        <h5>Reporte de Mantenimientos por Usuario</h5>
+      </c-card-body>
+    </c-card>
+    <c-card class="mb-4" >
+      <c-card-body>
+        <div class="mb-3">
+          <label cLabel for="nombre_peticion">ID USUARIO</label>
+          <input
+            cFormControl
+            id="nombre_peticion"
+            placeholder="Ingrese el ID del Usuario"
+            [(ngModel)]="mantenimientoModelo._id"
+            type="text"
+            name="nombre_peticion"
+          />
+        </div>
+        <button
+          cButton
+          class="me-1"
+          color="success"
+          variant="outline"
+          type="submit"
+          (click)="buscarMantenimientos()"
+        >
+          Buscar
+        </button>
+      </c-card-body>
+    </c-card>
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Registros de Mantenimientos</strong>
+      </c-card-header>
+      <c-card-body>
+        <table cTable>
+          <thead>
+            <tr cTableColor="danger">
+              <th scope="col">#</th>
+              <th scope="col">Nombre Solicitante</th>
+              <th scope="col">Nombre Técnico</th>
+              <th scope="col">Tipo de Soporte</th>
+              <th scope="col">Usuario</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of listaMantenimientos; track item; let i = $index){
+            <tr>
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ item.nombre_peticion }}</td>
+              <td>{{ item.nombre_tecnico }}</td>
+              <td>{{ item.tipo_soporte }}</td>
+              <td cTableColor="info">{{ item.usuario.nombre_usuario }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

@@ -1,0 +1,70 @@
+<!-- listasoporte.ejs -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Soporte</title>
+    <style>
+        /* Agrega tus estilos CSS personalizados aquí */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .mantenimiento-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .mantenimiento-item {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .mantenimiento-item h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .mantenimiento-item p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Soporte</h1>
+        <ul class="mantenimiento-list">
+            <% mantenimientos.forEach(mantenimiento => { %>
+                <li class="mantenimiento-item">
+                    <h2>Dar Soporte a : <%= mantenimiento.nombre_peticion %></h2>
+                    <p><strong>Técnico:</strong> <%= mantenimiento.nombre_tecnico %></p>
+                    <p><strong>Tipo de Soporte:</strong> <%= mantenimiento.tipo_soporte %></p>
+                    <p><strong>Descripción:</strong> <%= mantenimiento.descripcion %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
+</body>
+</html>

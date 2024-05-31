@@ -1,0 +1,37 @@
+<c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card class="mb-4" color="danger">
+      <c-card-body >
+        <!--<h1>Primer Reporte</h1>-->
+        <h5>Reporte de cantidad Mantenimientos registrados por Usuario</h5>
+      </c-card-body>
+    </c-card>
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Registros de Mantenimientos</strong>
+      </c-card-header>
+      <c-card-body>
+        <table cTable>
+          <thead>
+            <tr cTableColor="danger">
+              <th scope="col">#</th>
+              <th scope="col">Usuario</th>
+              <th scope="col">Total de Mantenimientos</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of listaMantenimientos; track item; let i = $index){
+            <tr>
+              <th scope="row">{{ i + 1 }}</th>
+              <td cTableColor="info">{{ item.usuario.nombre_usuario }}</td>
+              <td>{{ item.totalmantenimientos }}</td>
+              
+            </tr>
+            }            
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
